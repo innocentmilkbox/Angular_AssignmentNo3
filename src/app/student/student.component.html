@@ -1,0 +1,40 @@
+<form>
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblName">Full Name</span>
+        </div>
+        <input class="form-control" type="text" name="txtName" id="txtName" aria-describedby="lblName"
+            [(ngModel)]="student.fullName" required minlength="1">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lbldoB">Date of Birth</span>
+        </div>
+        <input class="form-control" type="text" name="txtdoB" id="txtdoB" aria-describedby="lbldoB" 
+                required minlength="1" placeholder="Please be precise because I was unable to use datepicker"
+                [(ngModel)]="student.doB">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="lblclassName">Of Class</span>
+        </div>
+        <input class="form-control" type="text" name="txtclassName" id="txtclassName" aria-describedby="lblclassName"
+                    [(ngModel)]="student.className" required minlength="1">
+    </div>
+    <button class="btn btn-primary" type="submit" name="btnAddStudent" id="btnAddStudent" (click)="btnAddStudent_Click()">Add New Student</button>
+</form>
+
+<table class="table table-light">
+    <thead class="thead-light">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Of Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of studentList; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{item.fullName}}</td>
+            <td>{{item.doB}}</td>
+            <td>{{item.className}}</td>
+        </tr>
+    </tbody>
+</table>
